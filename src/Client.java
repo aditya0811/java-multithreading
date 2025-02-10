@@ -2,10 +2,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.List;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
@@ -15,6 +13,11 @@ public class Client {
     int count = 1000;
     Set<Integer> uniqueSequences = getUniqueSequences(new SequenceGenerator(),count);
     System.out.println("This is set size:" + uniqueSequences.size());
+
+    Set<Integer> uniqueSequencesWithSynchronizedKeyword =
+        getUniqueSequences(new SequenceGeneratorUsingSynchronizedKeyword(),count);
+    System.out.println("This is set size with synchronized keyword:" + uniqueSequencesWithSynchronizedKeyword.size());
+
   }
 
   private static Set<Integer> getUniqueSequences(SequenceGenerator sequenceGenerator, int count)
