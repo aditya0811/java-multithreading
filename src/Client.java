@@ -27,7 +27,7 @@ public class Client {
     sequenceGenerator.getNextSequence();
     List<Future<Integer>> futures = new ArrayList<>();
     for(int i=0;i<count;i++) {
-      Future future = executorService.submit(sequenceGenerator::getNextSequence);
+      Future<Integer> future = executorService.submit(sequenceGenerator::getNextSequence);
       futures.add(future);
     }
     for(int i=0;i<count;i++) {
