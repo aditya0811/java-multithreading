@@ -10,7 +10,9 @@ Every piece of code in a method can be forced to access by one thread by using s
 We should use volatile variable, if we want to avoid CPU cache, and store the variable in main 
 memory, so all threads see same value.
 
-
+3) https://docs.oracle.com/javase/tutorial/essential/concurrency/threads.html
+ALl the learnings are present in threadobject. Here we understood two ways for manual thread management.
+How to start a thread/how to interrupt it/what is use case of join with interrupt and isAlive/what is thread name 
 
 FixedThreadPool
 It can accept INT_MAX tasks.
