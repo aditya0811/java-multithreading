@@ -14,6 +14,20 @@ memory, so all threads see same value.
 ALl the learnings are present in threadobject. Here we understood two ways for manual thread management.
 How to start a thread/how to interrupt it/what is use case of join with interrupt and isAlive/what is thread name 
 
+
+4) In synchronization package.
+In java the reason we have synchronization is to avoid two problems when multiple threads are used.
+Thread interference (one thread hogging other thread, resulting in other thread slowness, or completed suspension of task)
+Second is, memory inconsistency errors, which is classic example of counter increment.
+Fundamentally synchronized keyword establish happens-before relationship to mke sure, whenever we call a
+method which has synchronized, each statement in the method, now has a happens before relationship
+with statements in methods that are called in the subsequent method calls. This guarantees no thread interference
+has occurred, and no memory consistency.
+
+
+Reentrant synchronization is allowing single thread to access the resources again(re-lock) in the synchronized method
+for which it has already lock access. 
+
 FixedThreadPool
 It can accept INT_MAX tasks.
 Here if a thread gets interrupted, then tasks fails, and the thread get replaced by another thread.
