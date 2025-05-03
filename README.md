@@ -28,6 +28,24 @@ has occurred, and no memory consistency.
 Reentrant synchronization is allowing single thread to access the resources again(re-lock) in the synchronized method
 for which it has already lock access. 
 
+Liveness of a concurrent application is a concept which makes it possible to execute task in timely manner.
+Three problems comes with liveness, deadlock, starvation, livelock
+
+a) In the Deadlock class, we have two methods with synchronized keyword, and following is the execution order
+main thread calls new thread t1
+t1 acquires lock in the method bow and bow back.
+main also creates new thread t2, and executes t2
+now during t1 bow execution, the bower.bowBack is the object which is waiting for the t2 to complete, which at the
+same time is waiting for t1 bow back to complete.[CHECK]. This is deadlock. bowBack method is never executed. 
+
+From docs
+When Deadlock runs, it's extremely likely that both threads will block when they attempt to invoke bowBack. Neither block will ever end, because each thread is waiting for the other to exit bow.
+
+[CHECK] Didnt get what these concepts are
+b) Starvation : When a thread becomes greedy and locks object for too much time, because it is more frequently
+calling a method, as compared to others.
+
+c) Livelock : Similar to deadlock, only the threads, are able to talk to each other, but unable to resume flow
 FixedThreadPool
 It can accept INT_MAX tasks.
 Here if a thread gets interrupted, then tasks fails, and the thread get replaced by another thread.
